@@ -78,15 +78,12 @@ public enum OperatorEnum {
 	}
 
 	public static boolean isOperator(String operatorStr) {
-		if(operatorStr.length() > 1) {
-			operatorStr = operatorStr.substring(operatorStr.length() - 1);
+		try {
+			getOperator(operatorStr);
+			return true;
+		} catch (Exception e) {
+			return false;
 		}
-		for (OperatorEnum operatorEnum : OperatorEnum.values()) {
-			if (operatorEnum.operator.compareTo(operatorStr) == 0) {
-				return true;
-			}
-		}
-		return false;
 	}
 
 	public OperatorType getType() {
